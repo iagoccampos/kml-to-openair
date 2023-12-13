@@ -27,8 +27,7 @@ kmzFiles.forEach((fileName) => {
 			};
 		}
 
-		const lng = i%2 === 0
-		const con = convertDDToDMS(+el, lng)
+		const con = convertDDToDMS(+el, i%2 === 0)
 
 		const deg = con.deg.toString().padStart(lng ? 3 : 2, '0')
 		const min = con.min.toString().padStart(2, '0')
