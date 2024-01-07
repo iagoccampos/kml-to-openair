@@ -18,7 +18,7 @@ const parser = new XMLParser();
 let openairFileContent = ''
 
 kmzFiles.forEach((fileName) => {
-	const file = readFileSync(`./input/${fileName}`).toString()
+	const file = readFileSync(`${inputFolderPath}/${fileName}`).toString()
 
 	const cordinatesString = (parser.parse(file) as KMLFile).kml.Document.Placemark.Polygon.outerBoundaryIs.LinearRing.coordinates;
 
