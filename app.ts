@@ -11,7 +11,7 @@ if(!existsSync(inputFolderPath)) {
 	process.exit(0)
 }
 
-const kmzFiles = readdirSync('./input').filter((val) => val.endsWith('.kml'))
+const kmzFiles = readdirSync(inputFolderPath).filter((val) => val.endsWith('.kml'))
 
 const parser = new XMLParser();
 
