@@ -1,7 +1,15 @@
 import { XMLParser } from 'fast-xml-parser'
-import { readFileSync, readdirSync, writeFileSync } from 'fs'
+import { readFileSync, readdirSync, writeFileSync, existsSync, mkdirSync } from 'fs'
 
 interface KMLFile { kml: { Document: { Placemark: { Polygon: { outerBoundaryIs: { LinearRing: { coordinates: string }}}}}}}
+
+const inputFolderPath = './input'
+
+if(!existsSync(inputFolderPath)) {
+	mkdirSync(inputFolderPath)
+	console.log('Add all you .kml files into input folder and restar the program.')
+	process.exit(0)
+}
 
 const kmzFiles = readdirSync('./input').filter((val) => val.endsWith('.kml'))
 
