@@ -57,4 +57,4 @@ kmzFiles.forEach((fileName) => {
 	openairFileContent += '\n'
 })
 
-writeFileSync('./output/output.txt', openairFileContent)
+writeFileSync('./output.txt', openairFileContent)
