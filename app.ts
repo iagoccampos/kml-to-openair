@@ -11,9 +11,9 @@ if(!existsSync(inputFolderPath)) {
 	process.exit(0)
 }
 
-const kmzFiles = readdirSync(inputFolderPath).filter((val) => val.endsWith('.kml'))
+const kmlFiles = readdirSync(inputFolderPath).filter((val) => val.endsWith('.kml'))
 
-if(!kmzFiles.length) {
+if(!kmlFiles.length) {
 	console.log('No .kml file found.')
 	process.exit(0)
 }
@@ -22,7 +22,7 @@ const parser = new XMLParser();
 
 let openairFileContent = ''
 
-kmzFiles.forEach((fileName) => {
+kmlFiles.forEach((fileName) => {
 	const file = readFileSync(`${inputFolderPath}/${fileName}`).toString()
 
 	const cordinatesString = (parser.parse(file) as KMLFile).kml.Document.Placemark.Polygon.outerBoundaryIs.LinearRing.coordinates;
