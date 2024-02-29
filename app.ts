@@ -13,6 +13,11 @@ if(!existsSync(inputFolderPath)) {
 
 const kmzFiles = readdirSync(inputFolderPath).filter((val) => val.endsWith('.kml'))
 
+if(!kmzFiles.length) {
+	console.log('No .kml file found.')
+	process.exit(0)
+}
+
 const parser = new XMLParser();
 
 let openairFileContent = ''
